@@ -1,0 +1,41 @@
+<div class="container">
+
+  <h1>Olá visitante</h1>
+  <h4>Seja bem-vindo!</h4>
+
+  <form [formGroup]="loginForm" (onsubmit)="login()" autocomplete="off">
+
+    <div class="alert error" *ngIf="errorMessage">
+
+      <div class="icon"></div>
+      <div class="message">
+        {{errorMessage}}
+      </div>
+
+    </div>
+
+
+    <div class="row display-column">
+      <label for="">Email:</label>
+      <input type="text" formControlName="email">
+    </div>
+
+    <div class="row display-column">
+      <label for="">Senha:</label>
+      <input type="password" formControlName="password">
+    </div>
+
+
+    <div class="row">
+
+      Ainda não é cadastrado?&nbsp;<a [routerLink]="['/auth/register']">Registre-se aqui</a>.
+
+    </div>
+
+    <div class="row">
+      <button class="submit" (click)="login()">Entrar</button>
+    </div>
+
+  </form>
+
+</div>
