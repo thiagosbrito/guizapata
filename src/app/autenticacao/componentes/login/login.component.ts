@@ -3,8 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 
 import { AngularFireAuth } from '@angular/fire/auth';
-import { ConsoleReporter } from 'jasmine';
-
 
 @Component({
   selector: 'app-login',
@@ -16,23 +14,22 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup
   errorMessage: string
 
-  constructor(private formBuilder: FormBuilder, private $ngFireAuth: AngularFireAuth, private router: Router) {
+  constructor(private construtorForm: FormBuilder, private authService: AngularFireAuth, private router: Router) {
     this.createLoginForm()
   }
 
   login() {
-    this.$ngFireAuth.signInWithEmailAndPassword(
+    this.authService.signInWithEmailAndPassword(
       this.loginForm.get('email').value,
       this.loginForm.get('password').value
     ).then(
-      () => {
+      (success) => {
         this.router.navigate(['/main/home'])
       },
       (error) => {
-        console.log(error)
         this.errorMessage = error.message
-      })
-
+      }
+    )
     this.loginForm.reset();
   }
 
@@ -43,7 +40,7 @@ export class LoginComponent implements OnInit {
   }
 
   createLoginForm() {
-    this.loginForm = this.formBuilder.group({
+    this.loginForm = this.construtorForm.group({
       email: ['', [ Validators.required]],
       password: ['', [ Validators.required]]
     })

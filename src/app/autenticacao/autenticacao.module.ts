@@ -3,11 +3,10 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AutenticacaoRoutingModule } from './autenticacao-routing.module';
 import { LoginComponent } from './componentes/login/login.component';
-import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { environment } from 'src/environments/environment';
-import { RegisterComponent } from './componentes/register/register.component';
 import { AngularFireAuthGuardModule} from '@angular/fire/auth-guard'
+import { RegisterComponent } from './componentes/register/register.component';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +21,6 @@ import { AngularFireAuthGuardModule} from '@angular/fire/auth-guard'
     // usando os validadores e outras ferramentas
     ReactiveFormsModule,
     FormsModule,
-    AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFireAuthGuardModule
   ]

@@ -1,7 +1,50 @@
-<p>
-  home works!
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Olá {{username}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Meu Perfil</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="container-flex">
+    <div class="welcome-message">
+      <div class="icon-wrapper">
+        <ion-icon name="alert-circle-outline"></ion-icon>
+      </div>
+      <p>
+        Olá usuário, aqui você pode atualizar seu cadastro ou excluir sua conta
+      </p>
+    </div>
+    <ul class="list">
+      <li class="list-item" [routerLink]="['/main/edit']">
+        <div class="icon-wrapper">
+          <ion-icon name="create-outline"></ion-icon>
+        </div>
+        <span>Editar conta</span>
+      </li>
+      <li class="list-item delete" (click)="openDeleteConfirm()">
+        <div class="icon-wrapper">
+          <ion-icon name="close-circle-outline"></ion-icon>
+        </div>
+        <span>Excluir conta</span>
+      </li>
+      <li class="list-item logout" (click)="logout()">
+        <div class="icon-wrapper">
+          <ion-icon name="log-out-outline"></ion-icon>
+        </div>
+        <a href="">Sair do App</a>
+      </li>
+    </ul>
+  </div>
+
+</ion-content>
 
 
-</p>
-
-<button (click)="logout()">Sair do App</button>

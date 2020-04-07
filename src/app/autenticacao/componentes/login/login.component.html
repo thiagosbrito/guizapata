@@ -3,6 +3,7 @@
   <h1>Olá visitante</h1>
   <h4>Seja bem-vindo!</h4>
 
+  <!-- Recebe o form criado no login.component.ts -->
   <form [formGroup]="loginForm" (onsubmit)="login()" autocomplete="off">
 
     <div class="alert error" *ngIf="errorMessage">
